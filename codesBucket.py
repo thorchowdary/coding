@@ -92,4 +92,53 @@ for i in array:
     if diff in array:
         bag.append([diff,i])
 print(bag)
+
+# Input: candies = [2,3,5,1,3], extraCandies = 3
+# Output: [true,true,true,false,true] 
+# Explanation: If you give all extraCandies to:
+# - Kid 1, they will have 2 + 3 = 5 candies, which is the greatest among the kids.
+# - Kid 2, they will have 3 + 3 = 6 candies, which is the greatest among the kids.
+# - Kid 3, they will have 5 + 3 = 8 candies, which is the greatest among the kids.
+# - Kid 4, they will have 1 + 3 = 4 candies, which is not the greatest among the kids.
+# - Kid 5, they will have 3 + 3 = 6 candies, which is the greatest among the kids.
+
+candies = [4,2,1,1,]
+extraCandies = 1
+bag = []
+def func(candies,extraCandies):
+    for i in range(0,len(candies)):
+        add_ = candies[i] + extraCandies
+        if add_ >= max(candies):
+            bag.append(True)
+        else:
+            bag.append(False)
+    print(bag)
+print(func(candies,extraCandies))
+
+
+# Input: s = "abciiidef", k = 3
+# Output: 3
+# Explanation: The substring "iii" contains 3 vowel letters.
+
+def string_combinations(s, k):
+    result = []
+    vowels = "aeiou"
+    count = 0
+    bag = []
+    for i in range(len(s) - k + 1):
+        combination = s[i:i+k]
+        result.append(combination)
+
+    for i in result:
+        print(i)
+        for j in i:
+            print(j)
+            if j in vowels:
+                count+=1
+        print(count)
+        bag.append(count)
+        count = 0
+    return max(bag)
     
+print(string_combinations("abciiidef",3))
+
